@@ -7,12 +7,13 @@ import { DataService } from '../data.service';
 })
 export class PricingComponent implements OnInit {
 Users={};
+count =0;
   constructor( private data: DataService) { }
 
   ngOnInit() {
 this.data.getData().subscribe(d =>{
-  this.Users['arr']=d;
-  alert(this.Users['arr'].length);
+  this.Users=d['data'];
+  this.count=this.Users['length'];
 })
   }
 
